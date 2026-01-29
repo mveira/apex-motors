@@ -42,15 +42,48 @@ export default function BookingPage() {
     "14:00", "15:00", "16:00", "17:00"
   ]
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
     
-    // Simulate booking
-    setTimeout(() => {
+    try {
+      const carInfo = selectedCar ? `${selectedCar.year} ${selectedCar.make} ${selectedCar.model}` : undefined
+      
+      const response = await fetch('/api/schedule', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: bookingData.name,
+          email: bookingData.email,
+          phone: bookingData.phone,
+          appointmentType: bookingData.bookingType === 'test-drive' ? 'Test Drive' : 'Viewing',
+          date: bookingData.date,
+          time: bookingData.time,
+          carDetails: carInfo,
+          message: '',
+        }),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to schedule appointment')
+      }
+
       setSubmitStatus("success")
+    } catch (error) {
+      console.error('Booking error:', error)
+      setSubmitStatus("error")
+      
+      // Reset error status after 5 seconds
+      setTimeout(() => {
+        setSubmitStatus("idle")
+      }, 5000)
+    } finally {
       setIsSubmitting(false)
-    }, 1500)
+    }
   }
 
   const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "447123456789"
@@ -79,7 +112,7 @@ export default function BookingPage() {
               {bookingData.date} at {bookingData.time}
             </p>
             <p className="text-zinc-400 mb-8">
-              We've sent a confirmation to <span className="text-white font-bold">{bookingData.email}</span>
+              We'll confirm your appointment at <span className="text-white font-bold">{bookingData.email}</span>
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/inventory">
@@ -104,6 +137,42 @@ export default function BookingPage() {
                 className="bg-primary hover:bg-primary/90 text-black font-bold"
               >
                 BOOK ANOTHER
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    )
+  }
+
+  if (submitStatus === "error") {
+    return (
+      <div className="min-h-screen flex items-center justify-center px-4">
+        <Card className="bg-zinc-900 border-zinc-800 max-w-2xl w-full">
+          <CardContent className="p-12 text-center">
+            <div className="w-24 h-24 rounded-full bg-red-500/10 border-4 border-red-500 flex items-center justify-center mx-auto mb-6">
+              <AlertTriangle className="h-12 w-12 text-red-500" />
+            </div>
+            <h2 className="text-4xl font-black mb-4">
+              SOMETHING WENT <span className="text-red-500">WRONG</span>
+            </h2>
+            <p className="text-zinc-400 mb-8">
+              We couldn't process your booking. Please try again or contact us via WhatsApp.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                onClick={() => setSubmitStatus("idle")}
+                variant="outline"
+                className="border-zinc-700"
+              >
+                TRY AGAIN
+              </Button>
+              <Button
+                onClick={handleWhatsAppBooking}
+                className="bg-primary hover:bg-primary/90 text-black font-bold"
+              >
+                <MessageCircle className="mr-2 h-4 w-4" />
+                BOOK VIA WHATSAPP
               </Button>
             </div>
           </CardContent>

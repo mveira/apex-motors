@@ -14,10 +14,10 @@ interface HeroProps {
 
 export function Hero({ filteredMake }: HeroProps) {
   // If a make is filtered, get cars of that make, otherwise get featured
-  const allCars = filteredMake 
+  const allCars = filteredMake
     ? getCars({ make: filteredMake }).slice(0, 5) // Get up to 5 cars of that make
     : getFeaturedCars(3)
-  
+
   const featuredCars = allCars.length > 0 ? allCars : getFeaturedCars(3) // Fallback
   const [currentIndex, setCurrentIndex] = useState(0)
 
@@ -37,9 +37,8 @@ export function Hero({ filteredMake }: HeroProps) {
         {featuredCars.map((car, index) => (
           <div
             key={car.id}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              index === currentIndex ? "opacity-100" : "opacity-0"
-            }`}
+            className={`absolute inset-0 transition-opacity duration-1000 ${index === currentIndex ? "opacity-100" : "opacity-0"
+              }`}
           >
             <Image
               src={car.image}
@@ -54,29 +53,24 @@ export function Hero({ filteredMake }: HeroProps) {
           </div>
         ))}
       </div>
-      
+
       {/* Accent glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,215,0,0.15),transparent_50%)]"></div>
-      
+
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-5xl">
-          {/* Exclusive badge or filtered badge */}
-          {filteredMake ? (
+          {/* Filtered badge */}
+          {filteredMake && (
             <div className="inline-flex items-center gap-2 bg-primary/20 border border-primary/50 px-4 py-2 rounded-full mb-6 backdrop-blur-xl animate-pulse">
               <Filter className="h-4 w-4 text-primary" />
               <span className="text-sm font-bold tracking-wider">
                 {filteredMake.toUpperCase()} COLLECTION • {featuredCars.length} VEHICLES
               </span>
             </div>
-          ) : (
-            <div className="inline-flex items-center gap-2 bg-black/60 border border-primary/30 px-4 py-2 rounded-full mb-6 backdrop-blur-xl">
-              <Award className="h-4 w-4 text-primary" />
-              <span className="text-sm font-bold tracking-wider">EXCLUSIVE HIGH-PERFORMANCE COLLECTION</span>
-            </div>
           )}
-          
+
           {/* Featured car badge */}
-          <div className="inline-flex items-center gap-3 bg-zinc-900/80 border border-zinc-700 px-4 py-2 rounded-lg mb-6 backdrop-blur-xl ml-3">
+          <div className="inline-flex items-center gap-3 bg-zinc-900/80 border border-zinc-700 px-4 py-2 rounded-lg mb-6 backdrop-blur-xl">
             <div className="text-left">
               <p className="text-xs text-zinc-400 font-semibold uppercase tracking-wide">Now Viewing</p>
               <p className="text-sm font-black text-primary">
@@ -84,7 +78,7 @@ export function Hero({ filteredMake }: HeroProps) {
               </p>
             </div>
           </div>
-          
+
           <h1 className="text-6xl md:text-8xl lg:text-9xl font-black mb-6 leading-none">
             {filteredMake ? (
               <>
@@ -102,14 +96,14 @@ export function Hero({ filteredMake }: HeroProps) {
               </>
             )}
           </h1>
-          
+
           <p className="text-xl md:text-2xl mb-8 text-zinc-300 font-light max-w-2xl">
-            {filteredMake 
+            {filteredMake
               ? `Explore our exclusive ${filteredMake} collection - ${featuredCars.length} premium ${filteredMake === "Tesla" ? "electric" : "performance"} vehicles available`
               : "Hand-selected performance machines for those who demand more than ordinary"
             }
           </p>
-          
+
           {/* Stats bar - Social Proof */}
           <div className="grid grid-cols-3 gap-4 mb-12 max-w-2xl">
             <div className="bg-black/60 backdrop-blur-xl border border-zinc-800 p-4 rounded-lg hover:border-primary/50 transition-all">
@@ -134,7 +128,7 @@ export function Hero({ filteredMake }: HeroProps) {
               <p className="text-xs text-zinc-400 font-semibold">CUSTOMER RATING</p>
             </div>
           </div>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 mb-8">
             <Link href={filteredMake ? `/inventory?make=${filteredMake}` : "/inventory"}>
               <Button size="lg" className="w-full sm:w-auto text-lg px-10 py-7 bg-primary hover:bg-primary/90 text-black font-black shadow-[0_0_30px_rgba(255,215,0,0.3)] hover:shadow-[0_0_40px_rgba(255,215,0,0.5)] transition-all">
@@ -152,7 +146,7 @@ export function Hero({ filteredMake }: HeroProps) {
               </Button>
             </a>
           </div>
-          
+
           {/* Trust badges */}
           <div className="flex flex-wrap gap-4 text-xs text-zinc-400">
             <div className="flex items-center gap-2">
@@ -176,43 +170,42 @@ export function Hero({ filteredMake }: HeroProps) {
           </div>
         </div>
       </div>
-      
+
       {/* Carousel controls */}
-      <div className="absolute bottom-8 right-8 flex items-center gap-4 z-20">
+      <div className="absolute bottom-4 md:bottom-8 right-4 md:right-8 flex items-center gap-2 md:gap-4 z-20">
         <button
           onClick={() => setCurrentIndex((prev) => (prev - 1 + featuredCars.length) % featuredCars.length)}
-          className="w-12 h-12 rounded-full bg-black/60 backdrop-blur-xl border border-zinc-700 hover:border-primary flex items-center justify-center transition-all hover:scale-110"
+          className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/60 backdrop-blur-xl border border-zinc-700 hover:border-primary flex items-center justify-center transition-all hover:scale-110"
         >
-          <ChevronLeft className="h-5 w-5" />
+          <ChevronLeft className="h-4 w-4 md:h-5 md:w-5" />
         </button>
-        
+
         {/* Indicators */}
-        <div className="flex gap-2">
+        <div className="flex gap-1.5 md:gap-2">
           {featuredCars.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}
-              className={`h-2 rounded-full transition-all ${
-                index === currentIndex
-                  ? "w-8 bg-primary"
+              className={`h-2 rounded-full transition-all ${index === currentIndex
+                  ? "w-6 md:w-8 bg-primary"
                   : "w-2 bg-zinc-600 hover:bg-zinc-500"
-              }`}
+                }`}
             />
           ))}
         </div>
-        
+
         <button
           onClick={() => setCurrentIndex((prev) => (prev + 1) % featuredCars.length)}
-          className="w-12 h-12 rounded-full bg-black/60 backdrop-blur-xl border border-zinc-700 hover:border-primary flex items-center justify-center transition-all hover:scale-110"
+          className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/60 backdrop-blur-xl border border-zinc-700 hover:border-primary flex items-center justify-center transition-all hover:scale-110"
         >
-          <ChevronRight className="h-5 w-5" />
+          <ChevronRight className="h-4 w-4 md:h-5 md:w-5" />
         </button>
       </div>
-      
+
       {/* Quick view button */}
       <Link
         href={`/cars/${currentCar.id}`}
-        className="absolute bottom-8 left-8 z-20 hidden md:flex items-center gap-2 bg-primary/90 hover:bg-primary text-black font-bold px-6 py-3 rounded-lg transition-all hover:scale-105 shadow-[0_0_30px_rgba(255,215,0,0.3)]"
+        className="absolute bottom-4 md:bottom-8 left-4 md:left-8 z-20 hidden md:flex items-center gap-2 bg-primary/90 hover:bg-primary text-black font-bold px-6 py-3 rounded-lg transition-all hover:scale-105 shadow-[0_0_30px_rgba(255,215,0,0.3)]"
       >
         <Zap className="h-4 w-4" />
         VIEW THIS {currentCar.make.toUpperCase()}

@@ -33,7 +33,7 @@ export default function RootLayout({
                 <h4 className="font-bold mb-4 tracking-wide">QUICK LINKS</h4>
                 <ul className="space-y-2 text-sm text-zinc-400">
                   <li><a href="/inventory" className="hover:text-primary transition-colors">Current Stock</a></li>
-                  <li><a href="https://wa.me/YOUR_PHONE_NUMBER" className="hover:text-primary transition-colors">Contact Us</a></li>
+                  <li><a href="https://wa.me/447881039525" className="hover:text-primary transition-colors">Contact Us</a></li>
                 </ul>
               </div>
               <div>

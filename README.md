@@ -53,6 +53,19 @@ npm run build
 npm start
 ```
 
+## Deploy to Netlify
+
+This project is configured and ready for Netlify deployment. See `DEPLOYMENT.md` for detailed deployment instructions.
+
+**Quick deploy:**
+```bash
+npm install -g netlify-cli
+netlify login
+netlify deploy --prod
+```
+
+Or connect your Git repository to Netlify for automatic deployments.
+
 ## Project Structure
 
 ```

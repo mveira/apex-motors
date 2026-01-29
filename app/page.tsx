@@ -13,7 +13,7 @@ import { ArrowRight, Zap, Shield, TrendingUp } from "lucide-react"
 export default function HomePage() {
   const featuredCars = getFeaturedCars(6)
   const allMakes = getAllMakes()
-  
+
   // Get popular makes (those with most cars in inventory)
   const popularMakes = allMakes
     .map((make) => ({
@@ -22,7 +22,7 @@ export default function HomePage() {
     }))
     .sort((a, b) => b.count - a.count)
     .slice(0, 8)
-  
+
   // Get spotlight vehicle - prioritize premium brands and high-performance cars
   const premiumBrands = ["Porsche", "McLaren", "Bentley", "Maserati", "Ferrari", "Lamborghini", "Range Rover", "Mercedes-Benz", "BMW", "Audi"]
   const spotlightCar = getCars()
@@ -40,7 +40,7 @@ export default function HomePage() {
     <>
       <Hero />
       <UrgencyBanner />
-      
+
       {/* Quick Make Filters */}
       <section className="bg-zinc-950 py-8 px-4 border-b border-zinc-800">
         <div className="container mx-auto">
@@ -70,17 +70,17 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      
+
       <TrustBadges />
-      
+
       {/* Spotlight Vehicle */}
       <SpotlightVehicle car={spotlightCar} />
-      
+
       {/* Featured Collection */}
       <section className="container mx-auto px-4 py-20 relative">
         {/* Background accent */}
         <div className="absolute top-0 right-0 w-1/2 h-96 bg-primary/5 blur-3xl rounded-full"></div>
-        
+
         <div className="relative">
           <div className="text-center mb-12">
             <Badge className="mb-6 bg-primary/10 text-primary border-primary/30 px-6 py-2 text-sm">
@@ -93,7 +93,7 @@ export default function HomePage() {
             <p className="text-zinc-400 text-xl font-light max-w-3xl mx-auto mb-8">
               Every vehicle in our collection is personally inspected, verified, and prepared to the highest standards
             </p>
-            
+
             {/* Value props */}
             <div className="flex flex-wrap justify-center gap-6 mb-12">
               <div className="flex items-center gap-2 bg-zinc-900/50 px-4 py-2 rounded-full border border-zinc-800">
@@ -141,26 +141,26 @@ export default function HomePage() {
       {/* Social Proof */}
       <SocialProof />
 
-      {/* Final CTA with FOMO */}
+      {/* Final CTA - Premium Invitation */}
       <section className="bg-gradient-to-br from-zinc-950 via-black to-zinc-950 py-24 px-4 border-t border-zinc-800 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,215,0,0.05),transparent_70%)]"></div>
-        
+
         <div className="container mx-auto text-center relative z-10">
-          <Badge className="mb-6 bg-red-600/20 text-red-400 border-red-600/30 px-6 py-2 animate-pulse">
+          <Badge className="mb-6 bg-primary/10 text-primary border-primary/30 px-6 py-2">
             <TrendingUp className="h-4 w-4 mr-2" />
-            HIGH DEMAND - ACT FAST
+            CURATED COLLECTION
           </Badge>
-          
+
           <h2 className="text-5xl md:text-6xl font-black mb-6 tracking-tighter">
-            DON'T MISS <span className="text-primary">YOUR CHANCE</span>
+            DISCOVER YOUR <span className="text-primary">MASTERPIECE</span>
           </h2>
           <p className="text-xl md:text-2xl mb-4 text-zinc-300 font-light max-w-3xl mx-auto">
-            Performance vehicles move fast. Speak to our specialists today.
+            Speak with our specialists about exceptional vehicles
           </p>
           <p className="text-zinc-500 mb-10">
-            Average response time: <span className="text-primary font-bold">Under 2 minutes</span>
+            Dedicated service · <span className="text-primary font-bold">Expert guidance</span>
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="https://wa.me/YOUR_PHONE_NUMBER"
@@ -169,12 +169,12 @@ export default function HomePage() {
             >
               <Button size="lg" className="bg-primary hover:bg-primary/90 text-black font-black text-lg px-12 py-7 shadow-[0_0_30px_rgba(255,215,0,0.3)]">
                 <Zap className="mr-2 h-5 w-5" />
-                CONTACT SPECIALIST NOW
+                SPEAK TO SPECIALIST
               </Button>
             </a>
             <Link href="/inventory">
               <Button size="lg" variant="outline" className="border-2 border-zinc-700 hover:border-primary text-lg px-12 py-7 font-bold">
-                BROWSE INVENTORY
+                EXPLORE COLLECTION
               </Button>
             </Link>
           </div>

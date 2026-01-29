@@ -16,11 +16,11 @@ export function PremiumShowcase({ car }: PremiumShowcaseProps) {
 
   useEffect(() => {
     if (!isRotating || car.images.length <= 1) return
-    
+
     const timer = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % car.images.length)
     }, 3000)
-    
+
     return () => clearInterval(timer)
   }, [isRotating, car.images.length])
 
@@ -31,15 +31,14 @@ export function PremiumShowcase({ car }: PremiumShowcaseProps) {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,215,0,0.1),transparent_70%)]"></div>
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:40px_40px] animate-pulse"></div>
       </div>
-      
+
       {/* Main image carousel */}
       <div className="relative h-full">
         {car.images.map((image, index) => (
           <div
             key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              index === currentImageIndex ? "opacity-100" : "opacity-0"
-            }`}
+            className={`absolute inset-0 transition-opacity duration-1000 ${index === currentImageIndex ? "opacity-100" : "opacity-0"
+              }`}
           >
             <Image
               src={image}
@@ -50,15 +49,15 @@ export function PremiumShowcase({ car }: PremiumShowcaseProps) {
             />
           </div>
         ))}
-        
+
         {/* Gradient overlays for depth */}
         <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/40"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-        
+
         {/* Animated glow border */}
         <div className="absolute inset-0 border-4 border-primary/0 group-hover:border-primary/30 transition-all duration-500 rounded-2xl"></div>
       </div>
-      
+
       {/* Top badges */}
       <div className="absolute top-6 right-6 space-y-3 z-20">
         <Badge className="bg-black/90 backdrop-blur-xl text-primary border-primary/30 text-sm px-4 py-2 shadow-lg animate-pulse">
@@ -69,22 +68,21 @@ export function PremiumShowcase({ car }: PremiumShowcaseProps) {
           {car.condition}
         </Badge>
       </div>
-      
+
       {/* Rotation control */}
       <div className="absolute top-6 left-6 z-20">
         <button
           onClick={() => setIsRotating(!isRotating)}
-          className={`flex items-center gap-2 bg-black/90 backdrop-blur-xl border px-4 py-2 rounded-lg text-sm font-bold transition-all hover:scale-105 ${
-            isRotating 
-              ? "border-primary text-primary" 
+          className={`flex items-center gap-2 bg-black/90 backdrop-blur-xl border px-4 py-2 rounded-lg text-sm font-bold transition-all hover:scale-105 ${isRotating
+              ? "border-primary text-primary"
               : "border-zinc-700 text-zinc-400 hover:border-zinc-600"
-          }`}
+            }`}
         >
           <RotateCw className={`h-4 w-4 ${isRotating ? "animate-spin" : ""}`} />
           {isRotating ? "AUTO-ROTATE ON" : "AUTO-ROTATE OFF"}
         </button>
       </div>
-      
+
       {/* Feature highlights - Top right, not overlapping controls */}
       <div className="absolute top-20 right-6 bg-black/90 backdrop-blur-xl border border-zinc-700 rounded-lg p-4 z-20 max-w-xs">
         <p className="text-xs text-zinc-400 mb-3 font-semibold uppercase tracking-wider">Key Features</p>
@@ -101,7 +99,7 @@ export function PremiumShowcase({ car }: PremiumShowcaseProps) {
           )}
         </div>
       </div>
-      
+
       {/* Image indicators - Large and prominent at bottom */}
       {car.images.length > 1 && (
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-5 z-40">
@@ -112,17 +110,16 @@ export function PremiumShowcase({ car }: PremiumShowcaseProps) {
                 setCurrentImageIndex(index)
                 setIsRotating(false)
               }}
-              className={`h-4 rounded-full transition-all shadow-lg ${
-                index === currentImageIndex
+              className={`h-4 rounded-full transition-all shadow-lg ${index === currentImageIndex
                   ? "w-20 bg-primary shadow-[0_0_25px_rgba(255,215,0,1)]"
                   : "w-4 bg-white/80 hover:bg-white"
-              }`}
+                }`}
               aria-label={`View angle ${index + 1}`}
             />
           ))}
         </div>
       )}
-      
+
       {/* Floating particles effect - Fixed positions to avoid hydration mismatch */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {[

@@ -5,12 +5,12 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { 
-  Phone, 
-  Mail, 
-  MapPin, 
-  Clock, 
-  MessageCircle, 
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  MessageCircle,
   Send,
   CheckCircle,
   AlertCircle
@@ -28,13 +28,13 @@ export default function ContactPage() {
   const [errorMessage, setErrorMessage] = useState("")
 
   // Get WhatsApp number from environment variable
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "447123456789"
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "447881039525"
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
     setErrorMessage("")
-    
+
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
@@ -51,7 +51,7 @@ export default function ContactPage() {
       }
 
       setSubmitStatus("success")
-      
+
       // Reset form after 3 seconds
       setTimeout(() => {
         setFormData({ name: "", email: "", phone: "", message: "" })
@@ -61,7 +61,7 @@ export default function ContactPage() {
       console.error('Form submission error:', error)
       setSubmitStatus("error")
       setErrorMessage(error instanceof Error ? error.message : 'Failed to send message. Please try again.')
-      
+
       // Reset error status after 5 seconds
       setTimeout(() => {
         setSubmitStatus("idle")
@@ -76,7 +76,7 @@ export default function ContactPage() {
     const message = formData.name || formData.email || formData.message
       ? `Hi, I'd like to get in touch.\n\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nMessage: ${formData.message}`
       : "Hi, I'd like to get in touch about a vehicle."
-    
+
     window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, "_blank")
   }
 
@@ -136,8 +136,8 @@ export default function ContactPage() {
                 <p className="text-zinc-400 text-sm mb-4">
                   Speak directly to our team
                 </p>
-                <a href="tel:+447123456789" className="text-2xl font-black text-primary hover:text-primary/80 transition-colors">
-                  07123 456789
+                <a href="tel:+447881039525" className="text-2xl font-black text-primary hover:text-primary/80 transition-colors">
+                  07881 039525
                 </a>
               </CardContent>
             </Card>
@@ -275,7 +275,7 @@ export default function ContactPage() {
                         type="tel"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        placeholder="07123 456789"
+                        placeholder="07881 039525"
                         className="bg-black border-zinc-700 focus:border-primary h-12"
                       />
                     </div>
@@ -312,7 +312,7 @@ export default function ContactPage() {
                           </>
                         )}
                       </Button>
-                      
+
                       <Button
                         type="button"
                         onClick={handleWhatsApp}

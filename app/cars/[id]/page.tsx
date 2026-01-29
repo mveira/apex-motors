@@ -78,12 +78,11 @@ export default async function CarDetailPage({
     .filter((c) => c.id !== car.id)
     .slice(0, 3)
 
-  // Psychological triggers
+  // Premium indicators
   const viewCount = 127 + (parseInt(car.id) * 13) % 100
-  const recentViews = 8 + (parseInt(car.id) * 3) % 15
   const isHighDemand = car.price > 40000
   const isLowMileage = car.mileage < 15000
-  
+
   // WhatsApp number
   const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "447123456789"
 
@@ -100,12 +99,12 @@ export default async function CarDetailPage({
 
   return (
     <>
-      {/* Urgency bar */}
-      <div className="bg-gradient-to-r from-red-950 via-red-900 to-red-950 border-b border-red-800 py-2 px-4">
+      {/* Premium info bar */}
+      <div className="bg-gradient-to-r from-zinc-950 via-zinc-900 to-zinc-950 border-b border-zinc-800 py-2 px-4">
         <div className="container mx-auto flex items-center justify-center gap-3 text-sm flex-wrap">
-          <AlertCircle className="h-4 w-4 text-red-400 animate-pulse" />
-          <span className="font-semibold text-white">
-            <span className="text-red-400">{recentViews} people</span> viewing this vehicle right now
+          <Eye className="h-4 w-4 text-primary" />
+          <span className="font-semibold text-zinc-300">
+            <span className="text-primary">{viewCount}</span> views · Strong interest
           </span>
         </div>
       </div>
@@ -154,9 +153,9 @@ export default async function CarDetailPage({
                 {car.condition}
               </Badge>
               {isHighDemand && (
-                <Badge className="bg-gradient-to-r from-orange-600 to-red-600 text-white border-0">
+                <Badge className="bg-primary/10 text-primary border-primary/30">
                   <TrendingUp className="h-3 w-3 mr-1" />
-                  HIGH DEMAND
+                  PREMIUM SELECT
                 </Badge>
               )}
               {isLowMileage && (
@@ -166,7 +165,7 @@ export default async function CarDetailPage({
                 </Badge>
               )}
             </div>
-            
+
             {/* Social proof */}
             <div className="flex items-center gap-4 mb-4 text-sm text-zinc-400">
               <div className="flex items-center gap-2">
@@ -178,13 +177,13 @@ export default async function CarDetailPage({
                 <span>Added this week</span>
               </div>
             </div>
-            
+
             <p className="text-zinc-400 mb-2 text-sm font-semibold uppercase tracking-wider">{car.year} • REF: #{car.id}</p>
             <h1 className="text-5xl md:text-6xl font-black mb-6 tracking-tighter leading-none">
               {car.make}<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-yellow-400">{car.model}</span>
             </h1>
-            
+
             {/* Price with finance framing */}
             <div className="bg-zinc-900/70 border border-zinc-800 p-6 rounded-lg mb-6">
               <p className="text-xs text-zinc-500 mb-1 font-semibold uppercase">Price</p>
@@ -205,7 +204,7 @@ export default async function CarDetailPage({
             </div>
 
             <p className="text-zinc-300 mb-6 text-base leading-relaxed">{car.description}</p>
-            
+
             {/* Trust signals */}
             <div className="grid grid-cols-2 gap-3 mb-8">
               <div className="flex items-center gap-2 text-sm text-zinc-400">
@@ -228,15 +227,21 @@ export default async function CarDetailPage({
 
             {/* CTA Buttons */}
             <div className="space-y-3 mb-12">
+              <Link href={`/schedule?car=${encodeURIComponent(`${car.year} ${car.make} ${car.model}`)}&id=${car.id}`}>
+                <Button size="lg" className="w-full bg-primary hover:bg-primary/90 text-black font-black text-lg py-7 shadow-[0_0_30px_rgba(255,215,0,0.3)] hover:shadow-[0_0_40px_rgba(255,215,0,0.5)]">
+                  <Calendar className="mr-2 h-5 w-5" />
+                  SCHEDULE TEST DRIVE
+                </Button>
+              </Link>
               <a
                 href={`https://wa.me/${whatsappNumber}?text=Hi, I'm interested in the ${car.year} ${car.make} ${car.model} (Ref: ${car.id})`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block"
               >
-                <Button size="lg" className="w-full bg-primary hover:bg-primary/90 text-black font-black text-lg py-7 shadow-[0_0_30px_rgba(255,215,0,0.3)] hover:shadow-[0_0_40px_rgba(255,215,0,0.5)]">
+                <Button size="lg" variant="outline" className="w-full border-zinc-700 hover:border-primary font-black text-lg py-7">
                   <MessageCircle className="mr-2 h-5 w-5" />
-                  ENQUIRE NOW - FAST RESPONSE
+                  ENQUIRE VIA WHATSAPP
                 </Button>
               </a>
               <p className="text-center text-xs text-zinc-500">
@@ -302,21 +307,23 @@ export default async function CarDetailPage({
         )}
       </div>
 
-      {/* Sticky Mobile CTA with urgency */}
+      {/* Sticky Mobile CTA */}
       <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-black/95 backdrop-blur-sm border-t border-zinc-800 shadow-2xl z-50">
-        <div className="p-3 bg-red-900/20 border-b border-red-900/30 flex items-center justify-center gap-2 text-xs">
-          <Eye className="h-3 w-3 text-red-400" />
-          <span className="text-red-400 font-semibold">{recentViews} people viewing now</span>
-        </div>
-        <div className="p-4">
+        <div className="p-3 space-y-2">
+          <Link href={`/schedule?car=${encodeURIComponent(`${car.year} ${car.make} ${car.model}`)}&id=${car.id}`}>
+            <Button size="lg" className="w-full bg-primary hover:bg-primary/90 text-black font-black shadow-[0_0_30px_rgba(255,215,0,0.3)]">
+              <Calendar className="mr-2 h-5 w-5" />
+              SCHEDULE TEST DRIVE
+            </Button>
+          </Link>
           <a
             href={`https://wa.me/${whatsappNumber}?text=Hi, I'm interested in the ${car.year} ${car.make} ${car.model} (Ref: ${car.id})`}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button size="lg" className="w-full bg-primary hover:bg-primary/90 text-black font-black shadow-[0_0_30px_rgba(255,215,0,0.3)]">
+            <Button size="lg" variant="outline" className="w-full border-zinc-700 font-bold">
               <MessageCircle className="mr-2 h-5 w-5" />
-              ENQUIRE NOW
+              WHATSAPP
             </Button>
           </a>
         </div>

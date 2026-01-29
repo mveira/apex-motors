@@ -25,27 +25,59 @@ export default function ContactPage() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
+  const [errorMessage, setErrorMessage] = useState("")
+
+  // Get WhatsApp number from environment variable
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "447123456789"
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setErrorMessage("")
     
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message')
+      }
+
       setSubmitStatus("success")
-      setIsSubmitting(false)
       
-      // Reset form
+      // Reset form after 3 seconds
       setTimeout(() => {
         setFormData({ name: "", email: "", phone: "", message: "" })
         setSubmitStatus("idle")
       }, 3000)
-    }, 1500)
+    } catch (error) {
+      console.error('Form submission error:', error)
+      setSubmitStatus("error")
+      setErrorMessage(error instanceof Error ? error.message : 'Failed to send message. Please try again.')
+      
+      // Reset error status after 5 seconds
+      setTimeout(() => {
+        setSubmitStatus("idle")
+        setErrorMessage("")
+      }, 5000)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleWhatsApp = () => {
-    const message = `Hi, I'd like to get in touch.\n\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nMessage: ${formData.message}`
-    window.open(`https://wa.me/YOUR_PHONE_NUMBER?text=${encodeURIComponent(message)}`, "_blank")
+    const message = formData.name || formData.email || formData.message
+      ? `Hi, I'd like to get in touch.\n\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nMessage: ${formData.message}`
+      : "Hi, I'd like to get in touch about a vehicle."
+    
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, "_blank")
   }
 
   return (
@@ -81,7 +113,7 @@ export default function ContactPage() {
                   Instant response, available now
                 </p>
                 <a
-                  href="https://wa.me/YOUR_PHONE_NUMBER"
+                  href={`https://wa.me/${whatsappNumber}`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -177,6 +209,32 @@ export default function ContactPage() {
                     >
                       Send Another Message
                     </Button>
+                  </div>
+                ) : submitStatus === "error" ? (
+                  <div className="text-center py-12">
+                    <div className="w-20 h-20 rounded-full bg-red-500/10 border-2 border-red-500 flex items-center justify-center mx-auto mb-6">
+                      <AlertCircle className="h-10 w-10 text-red-500" />
+                    </div>
+                    <h3 className="text-2xl font-black mb-3">OOPS! SOMETHING WENT WRONG</h3>
+                    <p className="text-zinc-400 mb-6">
+                      {errorMessage || "Failed to send message. Please try again or contact us via WhatsApp."}
+                    </p>
+                    <div className="flex gap-4 justify-center">
+                      <Button
+                        onClick={() => setSubmitStatus("idle")}
+                        variant="outline"
+                        className="border-zinc-700"
+                      >
+                        Try Again
+                      </Button>
+                      <Button
+                        onClick={handleWhatsApp}
+                        className="bg-primary hover:bg-primary/90 text-black font-bold"
+                      >
+                        <MessageCircle className="mr-2 h-4 w-4" />
+                        WhatsApp Us
+                      </Button>
+                    </div>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">

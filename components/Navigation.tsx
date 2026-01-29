@@ -7,14 +7,14 @@ export function Navigation() {
   return (
     <nav className="border-b border-zinc-800 bg-black/95 backdrop-blur-sm sticky top-0 z-50">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-24 sm:h-28 md:h-32 lg:h-40 xl:h-44">
+        <div className="flex items-center justify-between h-28 sm:h-36 md:h-44 lg:h-52 xl:h-60">
           <Link href="/" className="flex items-center gap-3 lg:-ml-10">
-            <div className="relative h-20 w-64 sm:h-24 sm:w-80 md:h-28 md:w-96 lg:h-36 lg:w-[28rem] xl:h-40 xl:w-[32rem]">
+            <div className="relative h-24 w-80 sm:h-32 sm:w-[28rem] md:h-40 md:w-[36rem] lg:h-48 lg:w-[44rem] xl:h-56 xl:w-[52rem]">
               <Image
                 src="/images/apex-motors-logo.png"
                 alt="Apex Motors"
                 fill
-                className="object-contain"
+                className="object-contain object-left"
                 priority
                 unoptimized
               />

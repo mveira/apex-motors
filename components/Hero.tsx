@@ -172,7 +172,7 @@ export function Hero({ filteredMake }: HeroProps) {
       </div>
 
       {/* Carousel controls */}
-      <div className="absolute bottom-4 md:bottom-8 right-4 md:right-8 flex items-center gap-2 md:gap-4 z-20">
+      <div className="absolute bottom-8 sm:bottom-6 md:bottom-8 right-4 md:right-8 flex items-center gap-2 md:gap-4 z-20">
         <button
           onClick={() => setCurrentIndex((prev) => (prev - 1 + featuredCars.length) % featuredCars.length)}
           className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/60 backdrop-blur-xl border border-zinc-700 hover:border-primary flex items-center justify-center transition-all hover:scale-110"

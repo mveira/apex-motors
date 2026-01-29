@@ -44,10 +44,15 @@ export default function ContactPage() {
         body: JSON.stringify(formData),
       })
 
-      const data = await response.json()
+      let data
+      try {
+        data = await response.json()
+      } catch (e) {
+        throw new Error('Failed to process response')
+      }
 
       if (!response.ok) {
-        throw new Error(data.error || 'Failed to send message')
+        throw new Error(data?.error || 'Failed to send message')
       }
 
       setSubmitStatus("success")

@@ -58,10 +58,15 @@ function ScheduleForm() {
         }),
       })
 
-      const data = await response.json()
+      let data
+      try {
+        data = await response.json()
+      } catch (e) {
+        throw new Error('Failed to process response')
+      }
 
       if (!response.ok) {
-        throw new Error(data.error || 'Failed to schedule appointment')
+        throw new Error(data?.error || 'Failed to schedule appointment')
       }
 
       setSubmitStatus("success")

@@ -58,7 +58,7 @@ export function Hero({ filteredMake }: HeroProps) {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,215,0,0.15),transparent_50%)]"></div>
 
       <div className="container mx-auto px-4 relative z-10 pt-8 md:pt-0">
-        <div className="max-w-5xl">
+        <div className="max-w-5xl overflow-hidden">
           {/* Filtered badge */}
           {filteredMake && (
             <div className="inline-flex items-center gap-2 bg-primary/20 border border-primary/50 px-4 py-2 rounded-full mb-6 backdrop-blur-xl animate-pulse">
@@ -70,16 +70,16 @@ export function Hero({ filteredMake }: HeroProps) {
           )}
 
           {/* Featured car badge */}
-          <div className="inline-flex items-center gap-3 bg-zinc-900/80 border border-zinc-700 px-4 py-2 rounded-lg mb-6 backdrop-blur-xl">
-            <div className="text-left">
-              <p className="text-xs text-zinc-400 font-semibold uppercase tracking-wide">Now Viewing</p>
-              <p className="text-sm font-black text-primary">
+          <div className="inline-flex items-center gap-2 md:gap-3 bg-zinc-900/80 border border-zinc-700 px-3 md:px-4 py-2 rounded-lg mb-6 backdrop-blur-xl max-w-full overflow-hidden">
+            <div className="text-left min-w-0">
+              <p className="text-[10px] md:text-xs text-zinc-400 font-semibold uppercase tracking-wide">Now Viewing</p>
+              <p className="text-xs md:text-sm font-black text-primary truncate">
                 {currentCar.year} {currentCar.make} {currentCar.model}
               </p>
             </div>
           </div>
 
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-black mb-6 leading-none">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black mb-6 leading-none break-words">
             {filteredMake ? (
               <>
                 {filteredMake.toUpperCase()}<br />
@@ -97,7 +97,7 @@ export function Hero({ filteredMake }: HeroProps) {
             )}
           </h1>
 
-          <p className="text-xl md:text-2xl mb-8 text-zinc-300 font-light max-w-2xl">
+          <p className="text-lg md:text-xl lg:text-2xl mb-8 text-zinc-300 font-light max-w-2xl">
             {filteredMake
               ? `Explore our exclusive ${filteredMake} collection - ${featuredCars.length} premium ${filteredMake === "Tesla" ? "electric" : "performance"} vehicles available`
               : "Hand-selected performance machines for those who demand more than ordinary"
@@ -105,27 +105,27 @@ export function Hero({ filteredMake }: HeroProps) {
           </p>
 
           {/* Stats bar - Social Proof */}
-          <div className="grid grid-cols-3 gap-4 mb-12 max-w-2xl">
-            <div className="bg-black/60 backdrop-blur-xl border border-zinc-800 p-4 rounded-lg hover:border-primary/50 transition-all">
-              <div className="flex items-center gap-2 mb-1">
-                <TrendingUp className="h-4 w-4 text-primary" />
-                <p className="text-2xl font-black text-primary">40+</p>
+          <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4 mb-12 max-w-2xl">
+            <div className="bg-black/60 backdrop-blur-xl border border-zinc-800 p-2 sm:p-3 md:p-4 rounded-lg hover:border-primary/50 transition-all min-w-0">
+              <div className="flex items-center gap-1 sm:gap-2 mb-1">
+                <TrendingUp className="h-3 w-3 sm:h-4 sm:w-4 text-primary flex-shrink-0" />
+                <p className="text-lg sm:text-xl md:text-2xl font-black text-primary">40+</p>
               </div>
-              <p className="text-xs text-zinc-400 font-semibold">PREMIUM VEHICLES</p>
+              <p className="text-[9px] sm:text-[10px] md:text-xs text-zinc-400 font-semibold leading-tight">PREMIUM VEHICLES</p>
             </div>
-            <div className="bg-black/60 backdrop-blur-xl border border-zinc-800 p-4 rounded-lg hover:border-primary/50 transition-all">
-              <div className="flex items-center gap-2 mb-1">
-                <Zap className="h-4 w-4 text-primary" />
-                <p className="text-2xl font-black text-primary">£1M+</p>
+            <div className="bg-black/60 backdrop-blur-xl border border-zinc-800 p-2 sm:p-3 md:p-4 rounded-lg hover:border-primary/50 transition-all min-w-0">
+              <div className="flex items-center gap-1 sm:gap-2 mb-1">
+                <Zap className="h-3 w-3 sm:h-4 sm:w-4 text-primary flex-shrink-0" />
+                <p className="text-lg sm:text-xl md:text-2xl font-black text-primary">£1M+</p>
               </div>
-              <p className="text-xs text-zinc-400 font-semibold">INVENTORY VALUE</p>
+              <p className="text-[9px] sm:text-[10px] md:text-xs text-zinc-400 font-semibold leading-tight">INVENTORY VALUE</p>
             </div>
-            <div className="bg-black/60 backdrop-blur-xl border border-zinc-800 p-4 rounded-lg hover:border-primary/50 transition-all">
-              <div className="flex items-center gap-2 mb-1">
-                <Award className="h-4 w-4 text-primary" />
-                <p className="text-2xl font-black text-primary">4.9★</p>
+            <div className="bg-black/60 backdrop-blur-xl border border-zinc-800 p-2 sm:p-3 md:p-4 rounded-lg hover:border-primary/50 transition-all min-w-0">
+              <div className="flex items-center gap-1 sm:gap-2 mb-1">
+                <Award className="h-3 w-3 sm:h-4 sm:w-4 text-primary flex-shrink-0" />
+                <p className="text-lg sm:text-xl md:text-2xl font-black text-primary">4.9★</p>
               </div>
-              <p className="text-xs text-zinc-400 font-semibold">CUSTOMER RATING</p>
+              <p className="text-[9px] sm:text-[10px] md:text-xs text-zinc-400 font-semibold leading-tight">CUSTOMER RATING</p>
             </div>
           </div>
 
@@ -148,18 +148,18 @@ export function Hero({ filteredMake }: HeroProps) {
           </div>
 
           {/* Trust badges */}
-          <div className="flex flex-wrap gap-4 text-xs text-zinc-400">
+          <div className="flex flex-wrap gap-3 md:gap-4 text-[10px] md:text-xs text-zinc-400">
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-              <span>{filteredMake ? `${featuredCars.length} ${filteredMake.toUpperCase()}` : "40 VEHICLES"} IN STOCK</span>
+              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse flex-shrink-0"></div>
+              <span className="whitespace-nowrap">{filteredMake ? `${featuredCars.length} ${filteredMake.toUpperCase()}` : "40 VEHICLES"} IN STOCK</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-primary rounded-full"></div>
-              <span>FINANCE AVAILABLE</span>
+              <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
+              <span className="whitespace-nowrap">FINANCE AVAILABLE</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-primary rounded-full"></div>
-              <span>PART EXCHANGE WELCOME</span>
+              <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
+              <span className="whitespace-nowrap">PART EXCHANGE WELCOME</span>
             </div>
             {filteredMake && (
               <Link href="/inventory" className="flex items-center gap-2 hover:text-primary transition-colors">

@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -7,11 +8,16 @@ export function Navigation() {
     <nav className="border-b border-zinc-800 bg-black/95 backdrop-blur-sm sticky top-0 z-50">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          <Link href="/" className="flex items-center gap-3 font-black text-2xl tracking-tighter">
-            <div className="h-10 w-10 bg-primary flex items-center justify-center">
-              <span className="text-black font-black text-xl">A</span>
+          <Link href="/" className="flex items-center gap-3">
+            <div className="relative h-12 w-48">
+              <Image
+                src="/images/apex-motors-logo.png"
+                alt="Apex Motors"
+                fill
+                className="object-contain"
+                priority
+              />
             </div>
-            <span>APEX<span className="text-primary">MOTORS</span></span>
           </Link>
           <div className="flex items-center gap-6">
             <Link

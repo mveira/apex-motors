@@ -172,16 +172,9 @@ export function Hero({ filteredMake }: HeroProps) {
       </div>
 
       {/* Carousel controls */}
-      <div className="absolute bottom-8 sm:bottom-6 md:bottom-8 right-4 md:right-8 flex items-center gap-2 md:gap-4 z-20">
-        <button
-          onClick={() => setCurrentIndex((prev) => (prev - 1 + featuredCars.length) % featuredCars.length)}
-          className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/60 backdrop-blur-xl border border-zinc-700 hover:border-primary flex items-center justify-center transition-all hover:scale-110"
-        >
-          <ChevronLeft className="h-4 w-4 md:h-5 md:w-5" />
-        </button>
-
-        {/* Indicators */}
-        <div className="flex gap-1.5 md:gap-2">
+      <div className="absolute bottom-8 sm:bottom-6 md:bottom-8 right-4 md:right-8 flex flex-col sm:flex-row items-center gap-3 sm:gap-2 md:gap-4 z-20">
+        {/* Indicators - shown first on mobile (top), middle on desktop */}
+        <div className="flex gap-1.5 md:gap-2 order-1 sm:order-2">
           {featuredCars.map((_, index) => (
             <button
               key={index}
@@ -194,12 +187,22 @@ export function Hero({ filteredMake }: HeroProps) {
           ))}
         </div>
 
-        <button
-          onClick={() => setCurrentIndex((prev) => (prev + 1) % featuredCars.length)}
-          className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/60 backdrop-blur-xl border border-zinc-700 hover:border-primary flex items-center justify-center transition-all hover:scale-110"
-        >
-          <ChevronRight className="h-4 w-4 md:h-5 md:w-5" />
-        </button>
+        {/* Navigation buttons */}
+        <div className="flex items-center gap-2 md:gap-3 order-2 sm:order-none">
+          <button
+            onClick={() => setCurrentIndex((prev) => (prev - 1 + featuredCars.length) % featuredCars.length)}
+            className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/60 backdrop-blur-xl border border-zinc-700 hover:border-primary flex items-center justify-center transition-all hover:scale-110"
+          >
+            <ChevronLeft className="h-4 w-4 md:h-5 md:w-5" />
+          </button>
+
+          <button
+            onClick={() => setCurrentIndex((prev) => (prev + 1) % featuredCars.length)}
+            className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/60 backdrop-blur-xl border border-zinc-700 hover:border-primary flex items-center justify-center transition-all hover:scale-110"
+          >
+            <ChevronRight className="h-4 w-4 md:h-5 md:w-5" />
+          </button>
+        </div>
       </div>
 
       {/* Quick view button */}

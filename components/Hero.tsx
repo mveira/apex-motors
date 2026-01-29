@@ -31,7 +31,7 @@ export function Hero({ filteredMake }: HeroProps) {
   const currentCar = featuredCars[currentIndex]
 
   return (
-    <div className="relative bg-black text-white min-h-screen flex items-center overflow-hidden">
+    <div className="relative bg-black text-white min-h-screen flex items-start md:items-center overflow-hidden">
       {/* Car image background with parallax effect */}
       <div className="absolute inset-0">
         {featuredCars.map((car, index) => (
@@ -57,7 +57,7 @@ export function Hero({ filteredMake }: HeroProps) {
       {/* Accent glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,215,0,0.15),transparent_50%)]"></div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative z-10 pt-8 md:pt-0">
         <div className="max-w-5xl">
           {/* Filtered badge */}
           {filteredMake && (

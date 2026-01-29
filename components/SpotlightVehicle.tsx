@@ -14,35 +14,35 @@ interface SpotlightVehicleProps {
 
 export function SpotlightVehicle({ car }: SpotlightVehicleProps) {
   return (
-    <section className="relative bg-gradient-to-b from-black to-zinc-950 py-20 px-4 overflow-hidden border-y border-zinc-800">
+    <section className="relative bg-gradient-to-b from-black to-zinc-950 py-12 md:py-20 px-4 overflow-hidden border-y border-zinc-800">
       {/* Accent glow */}
       <div className="absolute top-1/2 left-1/2 w-[800px] h-[800px] -translate-x-1/2 bg-primary/10 blur-3xl rounded-full"></div>
 
-      <div className="container mx-auto relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
+      <div className="container mx-auto relative z-10 overflow-hidden">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-start max-w-7xl mx-auto">
           {/* Left: Content */}
-          <div>
+          <div className="overflow-hidden">
             {/* Spotlight badge */}
-            <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 px-4 py-2 rounded-full mb-6 backdrop-blur-xl">
-              <Zap className="h-4 w-4 text-primary" />
-              <span className="text-sm font-bold tracking-wider text-primary">
+            <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 px-3 md:px-4 py-2 rounded-full mb-6 backdrop-blur-xl text-xs md:text-sm">
+              <Zap className="h-3 w-3 md:h-4 md:w-4 text-primary" />
+              <span className="font-bold tracking-wider text-primary">
                 SPOTLIGHT VEHICLE · FEATURED
               </span>
             </div>
 
             {/* Vehicle info */}
-            <p className="text-zinc-500 text-sm font-semibold mb-2 uppercase tracking-wider">
+            <p className="text-zinc-500 text-xs md:text-sm font-semibold mb-2 uppercase tracking-wider">
               {car.year} • REF #{car.id}
             </p>
 
-            <h2 className="text-5xl md:text-7xl font-black mb-6 leading-none tracking-tighter">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-none tracking-tighter break-words">
               {car.make}<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-yellow-300 to-primary">
                 {car.model}
               </span>
             </h2>
 
-            <p className="text-xl text-zinc-300 mb-6 leading-relaxed max-w-xl">
+            <p className="text-lg md:text-xl text-zinc-300 mb-6 leading-relaxed max-w-xl">
               {car.description}
             </p>
 
@@ -65,23 +65,23 @@ export function SpotlightVehicle({ car }: SpotlightVehicleProps) {
             </div>
 
             {/* Price with urgency */}
-            <div className="bg-gradient-to-r from-zinc-900/80 to-zinc-900/40 backdrop-blur-xl border border-zinc-800 p-6 rounded-lg mb-8">
-              <div className="flex items-start justify-between">
-                <div>
+            <div className="bg-gradient-to-r from-zinc-900/80 to-zinc-900/40 backdrop-blur-xl border border-zinc-800 p-4 md:p-6 rounded-lg mb-8 overflow-hidden">
+              <div className="flex items-start justify-between gap-2 flex-wrap md:flex-nowrap">
+                <div className="min-w-0 flex-shrink">
                   <p className="text-xs text-zinc-500 mb-2 font-semibold uppercase">Price</p>
-                  <p className="text-5xl font-black text-primary mb-2 tracking-tight">
+                  <p className="text-3xl sm:text-4xl md:text-5xl font-black text-primary mb-2 tracking-tight break-words">
                     {formatPrice(car.price)}
                   </p>
-                  <p className="text-sm text-zinc-400">
+                  <p className="text-xs md:text-sm text-zinc-400">
                     or from <span className="text-white font-bold">£{Math.round(car.price / 60)}/month</span>
                   </p>
                 </div>
-                <div className="text-right">
+                <div className="text-right flex-shrink-0">
                   <div className="flex items-center gap-2 mb-2">
-                    <Eye className="h-4 w-4 text-primary" />
-                    <span className="text-sm text-zinc-400">High interest</span>
+                    <Eye className="h-3 w-3 md:h-4 md:w-4 text-primary" />
+                    <span className="text-xs md:text-sm text-zinc-400 whitespace-nowrap">High interest</span>
                   </div>
-                  <Badge className="bg-primary/10 text-primary border-primary/30">
+                  <Badge className="bg-primary/10 text-primary border-primary/30 text-xs whitespace-nowrap">
                     PREMIUM SELECT
                   </Badge>
                 </div>
@@ -132,7 +132,7 @@ export function SpotlightVehicle({ car }: SpotlightVehicleProps) {
           </div>
 
           {/* Right: Framer Motion Showcase */}
-          <div className="relative">
+          <div className="relative overflow-hidden">
             <FramerShowcase car={car} />
           </div>
         </div>

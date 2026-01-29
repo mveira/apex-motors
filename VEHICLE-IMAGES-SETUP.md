@@ -21,6 +21,12 @@ public/
 
 Based on your `cars.ts` file, you need the following images:
 
+### ⭐ FEATURED: Porsche 911 Carrera S (2021) - Showroom Centerpiece
+- `porsche-911-1.jpg` (main hero image - make this STUNNING!)
+- `porsche-911-2.jpg` (3/4 rear angle)
+- `porsche-911-3.jpg` (interior/cockpit)
+- `porsche-911-4.jpg` (engine bay or detail shot)
+
 ### 1. BMW M2 (2017)
 - `bmw-m2-1.jpg` (main image)
 - `bmw-m2-2.jpg` (gallery image)

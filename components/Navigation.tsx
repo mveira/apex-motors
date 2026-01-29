@@ -34,9 +34,9 @@ export function Navigation() {
     <>
       <nav className="border-b border-zinc-800 bg-black/95 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="flex items-center justify-between gap-2 sm:gap-4 h-32 sm:h-40 md:h-52 lg:h-60 xl:h-72">
+          <div className="flex items-center justify-between gap-2 sm:gap-4 h-[6.5rem] sm:h-[7.9rem] md:h-[7.7rem] lg:h-[9.1rem] xl:h-[11.2rem]">
             <Link href="/" className="flex items-center flex-shrink min-w-0 lg:-ml-10">
-              <div className="relative h-28 w-96 sm:h-36 sm:w-[32rem] md:h-48 md:w-[42rem] lg:h-56 lg:w-[50rem] xl:h-64 xl:w-[58rem]">
+              <div className="relative h-[10.5rem] w-[54.7rem] sm:h-[12.6rem] sm:w-[70.9rem] md:h-[12.5rem] md:w-[68.4rem] lg:h-[15.6rem] lg:w-[84rem] xl:h-[18.75rem] xl:w-[99.6rem]">
                 <Image
                   src="/images/apex-motors-logo.webp"
                   alt="Apex Motors"

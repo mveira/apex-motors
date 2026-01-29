@@ -127,12 +127,12 @@ export default function HomePage() {
           <div className="text-center">
             <Link href="/inventory">
               <Button size="lg" className="bg-primary hover:bg-primary/90 text-black font-black text-lg px-12 py-7 shadow-[0_0_30px_rgba(255,215,0,0.3)] hover:shadow-[0_0_40px_rgba(255,215,0,0.5)]">
-                VIEW ALL 40 VEHICLES
+                VIEW FULL COLLECTION
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
             <p className="text-zinc-500 text-sm mt-4">
-              New vehicles added weekly • Finance available on all stock
+              Hand-selected premium vehicles • Finance available on all stock
             </p>
           </div>
         </div>

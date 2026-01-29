@@ -67,7 +67,7 @@ export function FramerShowcase({ car }: FramerShowcaseProps) {
   }
 
   return (
-    <div className="relative h-[600px] bg-gradient-to-br from-zinc-950 via-black to-zinc-900 rounded-2xl overflow-hidden border-2 border-zinc-800 shadow-2xl group">
+    <div className="relative h-[400px] md:h-[500px] lg:h-[600px] bg-gradient-to-br from-zinc-950 via-black to-zinc-900 rounded-2xl overflow-hidden border-2 border-zinc-800 shadow-2xl group">
       {/* Animated background */}
       <div className="absolute inset-0 opacity-20">
         <motion.div

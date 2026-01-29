@@ -153,16 +153,16 @@ export function FramerShowcase({ car }: FramerShowcaseProps) {
         )}
       </motion.button>
 
-      {/* Feature highlights - Top right, below badges */}
+      {/* Feature highlights - Hidden on mobile, subtle on larger screens */}
       <motion.div
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.5 }}
-        className="absolute top-32 right-3 md:right-6 bg-black/90 backdrop-blur-xl border border-zinc-700 rounded-lg p-3 md:p-4 z-20 max-w-[200px] md:max-w-xs"
+        className="hidden lg:block absolute top-32 right-6 bg-black/70 backdrop-blur-md border border-zinc-800/50 rounded-lg p-3 z-20 max-w-[220px]"
       >
-        <p className="text-xs text-zinc-400 mb-2 md:mb-3 font-semibold uppercase tracking-wider">Key Features</p>
-        <div className="space-y-1.5 md:space-y-2">
-          {car.features.slice(0, 5).map((feature, index) => (
+        <p className="text-[10px] text-zinc-500 mb-2 font-bold uppercase tracking-wider">Features</p>
+        <div className="space-y-1.5">
+          {car.features.slice(0, 4).map((feature, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, x: 10 }}
@@ -170,8 +170,8 @@ export function FramerShowcase({ car }: FramerShowcaseProps) {
               transition={{ delay: 0.6 + index * 0.1 }}
               className="flex items-start gap-2"
             >
-              <div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 flex-shrink-0"></div>
-              <span className="text-xs text-zinc-300 leading-tight">{feature}</span>
+              <div className="w-1 h-1 rounded-full bg-primary/70 mt-1 flex-shrink-0"></div>
+              <span className="text-[11px] text-zinc-400 leading-tight">{feature}</span>
             </motion.div>
           ))}
         </div>

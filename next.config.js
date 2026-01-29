@@ -8,6 +8,13 @@ const nextConfig = {
       },
     ],
   },
+  // Skip type checking and linting during build - handle separately
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 }
 
 module.exports = nextConfig

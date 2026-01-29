@@ -1,8 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-// Initialize Resend with API key from environment variables
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Initialize Resend lazily to avoid build-time errors
+let resend: Resend | null = null;
+
+function getResendClient() {
+  if (!resend && process.env.RESEND_API_KEY) {
+    resend = new Resend(process.env.RESEND_API_KEY);
+  }
+  return resend;
+}
 
 export async function POST(request: NextRequest) {
   try {
@@ -26,8 +33,19 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Get Resend client
+    const resendClient = getResendClient();
+    
+    if (!resendClient) {
+      console.error('Resend API key not configured');
+      return NextResponse.json(
+        { error: 'Email service not configured. Please contact us via WhatsApp.' },
+        { status: 503 }
+      );
+    }
+
     // Send email using Resend
-    const { data, error } = await resend.emails.send({
+    const { data, error } = await resendClient.emails.send({
       from: process.env.EMAIL_FROM || 'onboarding@resend.dev',
       to: process.env.EMAIL_TO || 'your-email@example.com',
       replyTo: email,

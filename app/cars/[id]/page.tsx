@@ -83,6 +83,9 @@ export default async function CarDetailPage({
   const recentViews = 8 + (parseInt(car.id) * 3) % 15
   const isHighDemand = car.price > 40000
   const isLowMileage = car.mileage < 15000
+  
+  // WhatsApp number
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "447123456789"
 
   const specs = [
     { icon: Calendar, label: "Year", value: car.year.toString() },
@@ -226,7 +229,7 @@ export default async function CarDetailPage({
             {/* CTA Buttons */}
             <div className="space-y-3 mb-12">
               <a
-                href={`https://wa.me/YOUR_PHONE_NUMBER?text=Hi, I'm interested in the ${car.year} ${car.make} ${car.model} (Ref: ${car.id})`}
+                href={`https://wa.me/${whatsappNumber}?text=Hi, I'm interested in the ${car.year} ${car.make} ${car.model} (Ref: ${car.id})`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block"
@@ -307,7 +310,7 @@ export default async function CarDetailPage({
         </div>
         <div className="p-4">
           <a
-            href={`https://wa.me/YOUR_PHONE_NUMBER?text=Hi, I'm interested in the ${car.year} ${car.make} ${car.model} (Ref: ${car.id})`}
+            href={`https://wa.me/${whatsappNumber}?text=Hi, I'm interested in the ${car.year} ${car.make} ${car.model} (Ref: ${car.id})`}
             target="_blank"
             rel="noopener noreferrer"
           >

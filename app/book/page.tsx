@@ -53,10 +53,12 @@ export default function BookingPage() {
     }, 1500)
   }
 
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "447123456789"
+
   const handleWhatsAppBooking = () => {
     const car = selectedCar ? `${selectedCar.year} ${selectedCar.make} ${selectedCar.model}` : "Not selected"
     const message = `Hi, I'd like to book a ${bookingData.bookingType === 'test-drive' ? 'test drive' : 'viewing appointment'}.\n\nVehicle: ${car}\nName: ${bookingData.name}\nDate: ${bookingData.date}\nTime: ${bookingData.time}\nPhone: ${bookingData.phone}`
-    window.open(`https://wa.me/YOUR_PHONE_NUMBER?text=${encodeURIComponent(message)}`, "_blank")
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, "_blank")
   }
 
   if (submitStatus === "success") {
@@ -238,7 +240,7 @@ export default function BookingPage() {
                       ))}
                     </div>
                     <p className="text-xs text-zinc-500 mt-3">
-                      Don't see your car? <a href="https://wa.me/YOUR_PHONE_NUMBER" className="text-primary hover:underline">Contact us</a>
+                      Don't see your car? <a href={`https://wa.me/${whatsappNumber}`} className="text-primary hover:underline">Contact us</a>
                     </p>
                   </div>
 

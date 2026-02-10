@@ -161,19 +161,20 @@ export default function HomePage() {
             Dedicated service · <span className="text-primary font-bold">Expert guidance</span>
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center px-4 sm:px-0">
             <a
               href="https://wa.me/YOUR_PHONE_NUMBER"
               target="_blank"
               rel="noopener noreferrer"
+              className="w-full sm:w-auto"
             >
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-black font-black text-lg px-12 py-7 shadow-[0_0_30px_rgba(255,215,0,0.3)]">
+              <Button size="lg" className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-black font-black text-base sm:text-lg px-6 sm:px-12 py-7 shadow-[0_0_30px_rgba(255,215,0,0.3)]">
                 <Zap className="mr-2 h-5 w-5" />
                 SPEAK TO SPECIALIST
               </Button>
             </a>
-            <Link href="/inventory">
-              <Button size="lg" variant="outline" className="border-2 border-zinc-700 hover:border-primary text-lg px-12 py-7 font-bold">
+            <Link href="/inventory" className="w-full sm:w-auto">
+              <Button size="lg" variant="outline" className="w-full sm:w-auto border-2 border-zinc-700 hover:border-primary text-base sm:text-lg px-6 sm:px-12 py-7 font-bold">
                 EXPLORE COLLECTION
               </Button>
             </Link>

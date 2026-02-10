@@ -28,7 +28,7 @@ export default function ContactPage() {
   const [errorMessage, setErrorMessage] = useState("")
 
   // Get WhatsApp number from environment variable
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "447881039525"
+  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "447700900123"
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -141,8 +141,8 @@ export default function ContactPage() {
                 <p className="text-zinc-400 text-sm mb-4">
                   Speak directly to our team
                 </p>
-                <a href="tel:+447881039525" className="text-2xl font-black text-primary hover:text-primary/80 transition-colors">
-                  07881 039525
+                <a href="tel:+447700900123" className="text-2xl font-black text-primary hover:text-primary/80 transition-colors">
+                  07700 900123
                 </a>
               </CardContent>
             </Card>
@@ -177,10 +177,10 @@ export default function ContactPage() {
                 </div>
                 <h3 className="text-xl font-black mb-2">Visit Us</h3>
                 <p className="text-zinc-400 text-sm">
-                  123 Performance Drive<br />
-                  Premium District<br />
-                  London, UK<br />
-                  SW1A 1AA
+                  123 Fishponds Road<br />
+                  Fishponds<br />
+                  Bristol, UK<br />
+                  BS16 3AN
                 </p>
               </CardContent>
             </Card>
@@ -280,7 +280,7 @@ export default function ContactPage() {
                         type="tel"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        placeholder="07881 039525"
+                        placeholder="07700 900123"
                         className="bg-black border-zinc-700 focus:border-primary h-12"
                       />
                     </div>

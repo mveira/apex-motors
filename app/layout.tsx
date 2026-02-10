@@ -33,13 +33,18 @@ export default function RootLayout({
                 <h4 className="font-bold mb-4 tracking-wide">QUICK LINKS</h4>
                 <ul className="space-y-2 text-sm text-zinc-400">
                   <li><a href="/inventory" className="hover:text-primary transition-colors">Current Stock</a></li>
-                  <li><a href="https://wa.me/447881039525" className="hover:text-primary transition-colors">Contact Us</a></li>
+                  <li><a href="https://wa.me/447700900123" className="hover:text-primary transition-colors">Contact Us</a></li>
                 </ul>
               </div>
               <div>
                 <h4 className="font-bold mb-4 tracking-wide">CONTACT</h4>
+                <p className="text-sm text-zinc-400 mb-3">
+                  123 Fishponds Road<br />
+                  Fishponds, Bristol<br />
+                  BS16 3AN
+                </p>
                 <p className="text-sm text-zinc-400">
-                  Get in touch via WhatsApp for instant assistance
+                  📱 07700 900123
                 </p>
               </div>
             </div>

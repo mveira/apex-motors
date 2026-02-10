@@ -155,7 +155,7 @@ export function Hero({ filteredMake }: HeroProps) {
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
-              <span className="whitespace-nowrap">FINANCE AVAILABLE</span>
+              <span className="whitespace-nowrap">WARRANTY INCLUDED</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>

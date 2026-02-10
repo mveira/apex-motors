@@ -64,16 +64,13 @@ export function SpotlightVehicle({ car }: SpotlightVehicleProps) {
               </div>
             </div>
 
-            {/* Price with urgency */}
+            {/* Price */}
             <div className="bg-gradient-to-r from-zinc-900/80 to-zinc-900/40 backdrop-blur-xl border border-zinc-800 p-4 md:p-6 rounded-lg mb-8 overflow-hidden">
               <div className="flex items-start justify-between gap-2 flex-wrap md:flex-nowrap">
                 <div className="min-w-0 flex-shrink">
                   <p className="text-xs text-zinc-500 mb-2 font-semibold uppercase">Price</p>
                   <p className="text-3xl sm:text-4xl md:text-5xl font-black text-primary mb-2 tracking-tight break-words">
                     {formatPrice(car.price)}
-                  </p>
-                  <p className="text-xs md:text-sm text-zinc-400">
-                    or from <span className="text-white font-bold">£{Math.round(car.price / 60)}/month</span>
                   </p>
                 </div>
                 <div className="text-right flex-shrink-0">
@@ -82,7 +79,7 @@ export function SpotlightVehicle({ car }: SpotlightVehicleProps) {
                     <span className="text-xs md:text-sm text-zinc-400 whitespace-nowrap">High interest</span>
                   </div>
                   <Badge className="bg-primary/10 text-primary border-primary/30 text-xs whitespace-nowrap">
-                    PREMIUM SELECT
+                    FEATURED
                   </Badge>
                 </div>
               </div>

@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"], weight: ["300", "400", "600", "700", "
 
 export const metadata: Metadata = {
   title: "Car Nation - Quality Used Cars & Vans",
-  description: "Specialising in quality used cars and vans for all needs. Full range of vehicles with warranty included and finance available.",
+  description: "Specialising in quality used cars and vans for all needs. Full range of vehicles with warranty included.",
 }
 
 export default function RootLayout({

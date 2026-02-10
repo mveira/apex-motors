@@ -84,13 +84,12 @@ export function CarCard({ car, index = 0 }: CarCardProps) {
             </div>
           </div>
 
-          {/* Price with psychological framing */}
+          {/* Price */}
           <div className="mb-4 bg-zinc-900/50 p-4 rounded-lg border border-zinc-800">
-            <p className="text-xs text-zinc-500 mb-1 font-semibold uppercase">From</p>
-            <p className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-primary to-yellow-400">
+            <p className="text-xs text-zinc-500 mb-1 font-semibold uppercase">Price</p>
+            <p className="text-3xl font-black text-primary">
               {formatPrice(car.price)}
             </p>
-            <p className="text-xs text-zinc-400 mt-1">Finance available</p>
           </div>
 
           <div className="grid grid-cols-2 gap-3 text-sm">

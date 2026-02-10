@@ -132,7 +132,7 @@ export default function HomePage() {
               </Button>
             </Link>
             <p className="text-zinc-500 text-sm mt-4">
-              Quality checked vehicles • Finance available on all stock
+              Quality checked vehicles • Full warranty included
             </p>
           </div>
         </div>

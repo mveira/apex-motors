@@ -184,21 +184,18 @@ export default async function CarDetailPage({
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-yellow-400">{car.model}</span>
             </h1>
 
-            {/* Price with finance framing */}
+            {/* Price */}
             <div className="bg-zinc-900/70 border border-zinc-800 p-6 rounded-lg mb-6">
               <p className="text-xs text-zinc-500 mb-1 font-semibold uppercase">Price</p>
               <p className="text-5xl md:text-6xl font-black text-primary mb-2 tracking-tight">
                 {formatPrice(car.price)}
               </p>
-              <p className="text-zinc-400 text-sm mb-3">
-                or from <span className="text-white font-bold">£{Math.round(car.price / 60)}/month</span>
-              </p>
-              <div className="flex gap-2 text-xs">
-                <Badge variant="outline" className="border-zinc-700">
-                  Finance Available
-                </Badge>
+              <div className="flex gap-2 text-xs mt-3">
                 <Badge variant="outline" className="border-zinc-700">
                   Part Exchange Welcome
+                </Badge>
+                <Badge variant="outline" className="border-zinc-700">
+                  Warranty Included
                 </Badge>
               </div>
             </div>

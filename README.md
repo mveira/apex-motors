@@ -1,4 +1,4 @@
-# Apex Motors - Car Dealer MVP
+# Car Nation - Car Dealer MVP
 
 A modern, mobile-first car dealership website built with Next.js, featuring a clean UI and WhatsApp integration.
 
@@ -134,4 +134,4 @@ The project uses Tailwind CSS with a custom color scheme. Update `app/globals.cs
 
 ## License
 
-© 2026 Apex Motors. All rights reserved.
+© 2026 Car Nation. All rights reserved.

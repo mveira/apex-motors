@@ -6,7 +6,7 @@ import { Navigation } from "@/components/Navigation"
 const inter = Inter({ subsets: ["latin"], weight: ["300", "400", "600", "700", "900"] })
 
 export const metadata: Metadata = {
-  title: "Apex Motors - Premium Performance Cars",
+  title: "Car Nation - Premium Performance Cars",
   description: "Specialising in premium and performance vehicles for discerning enthusiasts. Quality assured vehicles with warranty included.",
 }
 
@@ -24,7 +24,7 @@ export default function RootLayout({
           <div className="container mx-auto">
             <div className="grid md:grid-cols-3 gap-8 mb-8">
               <div>
-                <h3 className="font-black text-xl mb-4 tracking-tight">APEX<span className="text-primary">MOTORS</span></h3>
+                <h3 className="font-black text-xl mb-4 tracking-tight">CAR<span className="text-primary">NATION</span></h3>
                 <p className="text-zinc-400 text-sm font-light">
                   Specialising in premium and performance vehicles for discerning enthusiasts.
                 </p>
@@ -45,7 +45,7 @@ export default function RootLayout({
             </div>
             <div className="border-t border-zinc-800 pt-8 text-center">
               <p className="text-zinc-500 text-sm">
-                &copy; {new Date().getFullYear()} Apex Motors. All rights reserved.
+                &copy; {new Date().getFullYear()} Car Nation. All rights reserved.
               </p>
               <p className="text-xs text-zinc-600 mt-2">
                 25+ years of trusted service

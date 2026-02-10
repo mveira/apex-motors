@@ -15,7 +15,7 @@ This guide will help you set up the contact form email functionality and WhatsAp
 1. Log in to your Resend dashboard
 2. Click on "API Keys" in the left sidebar
 3. Click "Create API Key"
-4. Give it a name (e.g., "Apex Motors Contact Form")
+4. Give it a name (e.g., "Car Nation Contact Form")
 5. Copy the API key (starts with `re_`)
 
 ### Step 3: Add Domain (Optional but Recommended)
@@ -45,7 +45,7 @@ cp .env.local.example .env.local
 RESEND_API_KEY=re_your_actual_api_key_here
 
 # Email FROM address (use your verified domain or onboarding@resend.dev for testing)
-EMAIL_FROM=Apex Motors <noreply@yourdomain.com>
+EMAIL_FROM=Car Nation <noreply@yourdomain.com>
 
 # Where contact form submissions should be sent
 EMAIL_TO=youremail@example.com

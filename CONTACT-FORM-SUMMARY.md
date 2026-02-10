@@ -58,7 +58,7 @@ cp .env.local.example .env.local
 
 # Edit .env.local with your values:
 RESEND_API_KEY=re_your_key_here
-EMAIL_FROM=Apex Motors <noreply@yourdomain.com>
+EMAIL_FROM=Car Nation <noreply@yourdomain.com>
 EMAIL_TO=your-email@example.com
 NEXT_PUBLIC_WHATSAPP_NUMBER=447123456789
 ```
@@ -72,14 +72,14 @@ npm run dev
 ## 📧 Email Features
 
 ### What the site owner receives:
-- **Professional HTML email** with Apex Motors branding
+- **Professional HTML email** with Car Nation branding
 - **All form data** (name, email, phone, message)
 - **Reply-to address** set to customer's email
 - **Clickable links** for email and phone
 - **Plain text fallback** for email clients that don't support HTML
 
 ### Email Template Includes:
-- Header with Apex Motors branding
+- Header with Car Nation branding
 - Organized field display with labels
 - Color-coded sections for readability
 - Responsive design

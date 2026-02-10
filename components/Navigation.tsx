@@ -38,8 +38,8 @@ export function Navigation() {
             <Link href="/" className="flex items-center flex-shrink min-w-0 lg:-ml-10">
               <div className="relative h-[10.5rem] w-[54.7rem] sm:h-[12.6rem] sm:w-[70.9rem] md:h-[12.5rem] md:w-[68.4rem] lg:h-[15.6rem] lg:w-[84rem] xl:h-[18.75rem] xl:w-[99.6rem]">
                 <Image
-                  src="/images/apex-motors-logo.webp"
-                  alt="Apex Motors"
+                  src="/images/car-nation.webp"
+                  alt="Car Nation"
                   fill
                   className="object-contain object-left"
                   priority

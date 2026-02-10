@@ -84,7 +84,7 @@ export async function POST(request: NextRequest) {
           <body>
             <div class="container">
               <div class="header">
-                <h1>🚗 APEX MOTORS</h1>
+                <h1>🚗 CAR NATION</h1>
                 <p>New Appointment Request</p>
                 <span class="badge">${appointmentType}</span>
               </div>
@@ -133,7 +133,7 @@ export async function POST(request: NextRequest) {
               
               <div class="footer">
                 <p><strong>⏰ Action Required:</strong> Please confirm this appointment with the customer as soon as possible.</p>
-                <p style="margin-top: 10px;">This email was sent from the Apex Motors appointment booking system</p>
+                <p style="margin-top: 10px;">This email was sent from the Car Nation appointment booking system</p>
               </div>
             </div>
           </body>

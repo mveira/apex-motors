@@ -47,7 +47,7 @@ Make sure you have these variables in your `.env.local` file:
 RESEND_API_KEY=re_your_api_key_here
 
 # Email configuration
-EMAIL_FROM=Apex Motors <noreply@yourdomain.com>
+EMAIL_FROM=Car Nation <noreply@yourdomain.com>
 EMAIL_TO=your-email@example.com
 
 # WhatsApp (optional fallback)
@@ -70,7 +70,7 @@ NEXT_PUBLIC_WHATSAPP_NUMBER=447123456789
 2. Click "Add Domain" and follow the instructions
 3. Update `EMAIL_FROM` to use your verified domain:
    ```env
-   EMAIL_FROM=Apex Motors <bookings@yourdomain.com>
+   EMAIL_FROM=Car Nation <bookings@yourdomain.com>
    ```
 
 For testing, you can use `onboarding@resend.dev` as the sender.

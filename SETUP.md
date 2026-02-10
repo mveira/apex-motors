@@ -1,4 +1,4 @@
-# Apex Motors - Setup Complete! 🚗
+# Car Nation - Setup Complete! 🚗
 
 ## What Was Built
 
@@ -54,7 +54,7 @@ Replace the car icon in `components/Navigation.tsx` with your actual logo:
 <Car className="h-6 w-6" />
 
 // Replace with:
-<Image src="/logo.png" alt="Apex Motors" width={120} height={40} />
+<Image src="/logo.png" alt="Car Nation" width={120} height={40} />
 ```
 
 Then add your logo file to the `public` folder.

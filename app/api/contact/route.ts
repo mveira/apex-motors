@@ -69,7 +69,7 @@ export async function POST(request: NextRequest) {
           <body>
             <div class="container">
               <div class="header">
-                <h1>🚗 APEX MOTORS</h1>
+                <h1>🚗 CAR NATION</h1>
                 <p>New Contact Form Submission</p>
               </div>
               
@@ -96,7 +96,7 @@ export async function POST(request: NextRequest) {
               </div>
               
               <div class="footer">
-                <p>This email was sent from the Apex Motors contact form</p>
+                <p>This email was sent from the Car Nation contact form</p>
               </div>
             </div>
           </body>

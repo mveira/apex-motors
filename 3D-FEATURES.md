@@ -2,7 +2,7 @@
 
 ## ✅ **INSTALLED & ACTIVE**
 
-Three.js ecosystem now fully integrated into your Apex Motors site!
+Three.js ecosystem now fully integrated into your Car Nation site!
 
 ---
 

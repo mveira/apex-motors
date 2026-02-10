@@ -33,7 +33,7 @@ Go to your Netlify site settings and add these environment variables:
 **Required for Contact Form:**
 ```
 RESEND_API_KEY=re_your_api_key_here
-EMAIL_FROM=Apex Motors <noreply@yourdomain.com>
+EMAIL_FROM=Car Nation <noreply@yourdomain.com>
 EMAIL_TO=your-email@example.com
 ```
 

@@ -6,8 +6,8 @@ import { Navigation } from "@/components/Navigation"
 const inter = Inter({ subsets: ["latin"], weight: ["300", "400", "600", "700", "900"] })
 
 export const metadata: Metadata = {
-  title: "Car Nation - Premium Performance Cars",
-  description: "Specialising in premium and performance vehicles for discerning enthusiasts. Quality assured vehicles with warranty included.",
+  title: "Car Nation - Quality Used Cars & Vans",
+  description: "Specialising in quality used cars and vans for all needs. Full range of vehicles with warranty included and finance available.",
 }
 
 export default function RootLayout({
@@ -26,7 +26,7 @@ export default function RootLayout({
               <div>
                 <h3 className="font-black text-xl mb-4 tracking-tight">CAR<span className="text-primary">NATION</span></h3>
                 <p className="text-zinc-400 text-sm font-light">
-                  Specialising in premium and performance vehicles for discerning enthusiasts.
+                  Quality used cars and vans for every journey. Trusted service since 1999.
                 </p>
               </div>
               <div>

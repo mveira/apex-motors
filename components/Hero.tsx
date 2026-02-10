@@ -83,8 +83,8 @@ export function Hero({ filteredMake }: HeroProps) {
             {filteredMake ? (
               <>
                 {filteredMake.toUpperCase()}<br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-yellow-300 to-primary animate-gradient">
-                  PERFORMANCE
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-zinc-300 to-primary animate-gradient">
+                  QUALITY
                 </span>
               </>
             ) : (
@@ -99,8 +99,8 @@ export function Hero({ filteredMake }: HeroProps) {
 
           <p className="text-lg md:text-xl lg:text-2xl mb-8 text-zinc-300 font-light max-w-2xl">
             {filteredMake
-              ? `Explore our exclusive ${filteredMake} collection - ${featuredCars.length} premium ${filteredMake === "Tesla" ? "electric" : "performance"} vehicles available`
-              : "Hand-selected performance machines for those who demand more than ordinary"
+              ? `Explore our ${filteredMake} collection - ${featuredCars.length} quality vehicles available`
+              : "Quality used cars and vans for every journey"
             }
           </p>
 
@@ -111,7 +111,7 @@ export function Hero({ filteredMake }: HeroProps) {
                 <TrendingUp className="h-3 w-3 sm:h-4 sm:w-4 text-primary flex-shrink-0" />
                 <p className="text-lg sm:text-xl md:text-2xl font-black text-primary">40+</p>
               </div>
-              <p className="text-[9px] sm:text-[10px] md:text-xs text-zinc-400 font-semibold leading-tight">PREMIUM VEHICLES</p>
+              <p className="text-[9px] sm:text-[10px] md:text-xs text-zinc-400 font-semibold leading-tight">QUALITY VEHICLES</p>
             </div>
             <div className="bg-black/60 backdrop-blur-xl border border-zinc-800 p-2 sm:p-3 md:p-4 rounded-lg hover:border-primary/50 transition-all min-w-0">
               <div className="flex items-center gap-1 sm:gap-2 mb-1">

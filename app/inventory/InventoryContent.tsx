@@ -75,7 +75,7 @@ export function InventoryContent() {
           <p className="text-zinc-400 text-xl font-light max-w-2xl">
             {makeParam
               ? `Explore our complete ${makeParam} lineup. Every vehicle inspected and ready to drive.`
-              : "Browse our complete collection of hand-selected performance vehicles. New stock added weekly."
+              : "Browse our complete collection of quality used cars and vans. New stock added weekly."
             }
           </p>
         </div>

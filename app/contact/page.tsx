@@ -98,7 +98,7 @@ export default function ContactPage() {
             GET IN <span className="text-primary">TOUCH</span>
           </h1>
           <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
-            Speak to our specialist team for expert advice on your next performance vehicle
+            Speak to our specialist team for expert advice on your next vehicle
           </p>
         </div>
       </section>

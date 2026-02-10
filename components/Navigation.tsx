@@ -34,9 +34,9 @@ export function Navigation() {
     <>
       <nav className="border-b border-zinc-800 bg-black/95 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="flex items-center justify-between gap-2 sm:gap-4 h-[6.5rem] sm:h-[7.9rem] md:h-[7.7rem] lg:h-[9.1rem] xl:h-[11.2rem]">
-            <Link href="/" className="flex items-center flex-shrink min-w-0 lg:-ml-10">
-              <div className="relative h-[10.5rem] w-[54.7rem] sm:h-[12.6rem] sm:w-[70.9rem] md:h-[12.5rem] md:w-[68.4rem] lg:h-[15.6rem] lg:w-[84rem] xl:h-[18.75rem] xl:w-[99.6rem]">
+          <div className="flex items-center justify-between gap-2 sm:gap-4 h-16 sm:h-20 md:h-24 lg:h-28">
+            <Link href="/" className="flex items-center flex-shrink min-w-0">
+              <div className="relative h-12 w-48 sm:h-16 sm:w-64 md:h-20 md:w-80 lg:h-24 lg:w-96">
                 <Image
                   src="/images/car-nation.webp"
                   alt="Car Nation"

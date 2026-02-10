@@ -23,7 +23,7 @@ export default function HomePage() {
     .sort((a, b) => b.count - a.count)
     .slice(0, 8)
 
-  // Get spotlight vehicle - prioritize premium brands and high-performance cars
+  // Get spotlight vehicle - prioritize featured vehicles
   const premiumBrands = ["Porsche", "McLaren", "Bentley", "Maserati", "Ferrari", "Lamborghini", "Range Rover", "Mercedes-Benz", "BMW", "Audi"]
   const spotlightCar = getCars()
     .filter((car) => premiumBrands.includes(car.make) || car.price > 50000)
@@ -88,7 +88,7 @@ export default function HomePage() {
               HAND-SELECTED COLLECTION
             </Badge>
             <h2 className="text-5xl md:text-7xl font-black mb-6 tracking-tighter">
-              PREMIUM <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-yellow-400">PERFORMANCE</span>
+              QUALITY <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-zinc-300">VEHICLES</span>
             </h2>
             <p className="text-zinc-400 text-xl font-light max-w-3xl mx-auto mb-8">
               Every vehicle in our collection is personally inspected, verified, and prepared to the highest standards
@@ -132,7 +132,7 @@ export default function HomePage() {
               </Button>
             </Link>
             <p className="text-zinc-500 text-sm mt-4">
-              Hand-selected premium vehicles • Finance available on all stock
+              Quality checked vehicles • Finance available on all stock
             </p>
           </div>
         </div>
